@@ -1,6 +1,5 @@
 /* TODO:
     - weighted randoms - decrease with each exercise
-    - fixed randoms - create arrays and pop, do not generate radom at each step
 */
 
 
@@ -9,219 +8,6 @@ var circle2 = document.getElementById("circle2");
 var circle3 = document.getElementById("circle3");
 var circle4 = document.getElementById("circle4");
 
-const {Renderer,
-       Stave,
-       StaveNote,
-       Formatter,
-       Beam, Dot
-       } = Vex.Flow;
-         
-       
-
-function dotted(staveNote, noteIndex = -1) {
-  if (noteIndex < 0) {
-    Dot.buildAndAttach([staveNote], {
-      all: true
-    });
-  } else {
-    Dot.buildAndAttach([staveNote], {
-      index: noteIndex
-    });
-  }
-  return staveNote;
-}
-
-// weighted randoms for bass, ride, hihat
-const weights = [[1,2],
-                 [1,1,2,1,1,1,5,4,3,3,5,1,1,3,1],
-                 [1,2,2]];
-
-const limbWeights = [1,1,2];
-       
-// Scores
-const snareClefs = [[new StaveNote({keys: ['c/5'],duration: 'q'})],
-                    [new StaveNote({ keys: ['a/4'], duration: '4r', })]];
-
-const bassClefs_full = [[new StaveNote({keys: ['f/4'],duration: 'q'})], //1
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                    dotted(new StaveNote({ keys: ['f/4'], duration: '8'}))], //2
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
-                    new StaveNote({ keys: ['f/4'], duration: '8'})], //3
-                   
-                   [dotted(new StaveNote({ keys: ['a/4'], duration: '8r', })), 
-                    new StaveNote({ keys: ['f/4'], duration: '16'}),],//4
-                   
-                   [new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                    new StaveNote({ keys: ['f/4'], duration: '16'}),
-                    new StaveNote({ keys: ['a/4'], duration: '8r'})], //5
-                   
-                    [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '8'})], //6   
-                   
-                    [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'})], //7  
-                   
-                    [dotted(new StaveNote({ keys: ['f/4'], duration: '8', })), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}),],//8
-                   
-                    [new StaveNote({keys: ['f/4'],duration: '8'}), 
-                     new StaveNote({keys: ['f/4'],duration: '8'})], //9
-                   
-                    [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                     new StaveNote({ keys: ['f/4'], duration: '8'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'})], //10
-                   
-                   
-                    [new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '8'}), ], //11
-                   
-                    [new StaveNote({ keys: ['f/4'], duration: '8'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'})], //12
-                   
-                    [new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '8'}),
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), ], //13
-                   
-                    [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}),], //14
-                   
-                    [new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
-                     new StaveNote({ keys: ['f/4'], duration: '16'})], //15
-                   
-                    [new StaveNote({ keys: ['a/4'], duration: '4r', })]
-                  ];
-
-
-const bassClefs = [[new StaveNote({keys: ['f/4'],duration: 'q'})],
-                        
-                        [new StaveNote({keys: ['f/4'],duration: '8'}), 
-                         new StaveNote({keys: ['f/4'],duration: '8'})],
-                        
-                        [new StaveNote({ keys: ['a/4'], duration: '4r', })]
-                  ];
-          
-const hihatClefs = [[new StaveNote({keys: ['d/4/x2'],duration: 'q'})],//1
-                    
-                    [new StaveNote({keys: ['d/4/x2'],duration: '8'}), 
-                     new StaveNote({keys: ['d/4/x2'], duration: '8'})],//2
-                    
-                    [new StaveNote({keys: ['a/4'],duration: '8r'}), 
-                     new StaveNote({keys: ['d/4/x2'], duration: '8'})],//3
-                    
-                    [new StaveNote({ keys: ['a/4'], duration: '4r', })]//rest
-                   ];    
-                
-const rideClefs = [[new StaveNote({ keys: ['a/5/x2'], duration: 'q'})], //1
-                   
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '8'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //2
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //3
-                   
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //4
-                   
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),
-                    new StaveNote({ keys: ['a/4'], duration: '8r'})], //5
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //6
-                   
-                   [dotted(new StaveNote({ keys: ['a/5/x2'], duration: '8', })), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),],//7
-                   
-                   [dotted(new StaveNote({ keys: ['a/4'], duration: '8r', })), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),],//8
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //9
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                    dotted(new StaveNote({ keys: ['a/5/x2'], duration: '8'}))], //10
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //11
-                   
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '8'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //12
-                   
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'}), ], //13
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),], //14 
-                   
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'}),
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),], //15
-                   
-                   [new StaveNote({ keys: ['a/4'], duration: '4r', })] //rest
-                   ];         
-
-
-// Groove Scribe grooves
-const snareGS     = ["&S=|----o-------o---|"];
-
-const bassGS = ["&K=|o-------o-------|", 
-                     "&K=|o-o-----o-o-----|"];
-
-const bassGS_full  = ["&K=|o-------o-------|",//1
-                 "&K=|-o-------o------|",//2
-                 "&K=|--o-------o-----|",//3
-                 "&K=|---o-------o----|",//4
-                 "&K=|oo------oo------|",//5
-                 "&K=|-oo------oo-----|",//6
-                 "&K=|--oo------oo----|",//7
-                 "&K=|o--o----o--o----|",//8  
-                 "&K=|o-o-----o-o-----|",//9
-                 "&K=|-o-o-----o-o----|",//10
-                 "&K=|ooo-----ooo-----|",//11
-                 "&K=|o-oo----o-oo----|",//12
-                 "&K=|oo-o----oo-o----|",//13
-                 "&K=|-ooo-----ooo----|",//14
-                 "&K=|oooo----oooo----|",//15
-                ];
-
-const hihatGS = ["&K=|x---x---x---x---|", 
-                 "&K=|x-x-x-x-x-x-x-x-|", 
-                 "&K=|--x---x---x---x-|"];
-
-const rideGS  = ["&H=|r---r---r---r---|", 
-                 "&H=|r-r-r-r-r-r-r-r-|", 
-                 "&H=|--r---r---r---r-|", 
-                 "&H=|rrrrrrrrrrrrrrrr|", 
-                 "&H=|rr--rr--rr--rr--|", 
-                 "&H=|--rr--rr--rr--rr|", 
-                 "&H=|r--rr--rr--rr--r|", 
-                 "&H=|---r---r---r---r|", 
-                 "&H=|-rr--rr--rr--rr-|", 
-                 "&H=|-r---r---r---r--|", 
-                 "&H=|-r-r-r-r-r-r-r-r|", 
-                 "&H=|r-rrr-rrr-rrr-rr|", 
-                 "&H=|rrr-rrr-rrr-rrr-|", 
-                 "&H=|-rrr-rrr-rrr-rrr|", 
-                 "&H=|rr-rrr-rrr-rrr-r|"];
 
 /* ----------------
    Class METRONOME
@@ -243,13 +29,20 @@ class Metronome
         
         /* Score attributes */
         this.counter = 0;
-        this.lengths = [bassClefs.length-1, rideClefs.length-1, hihatClefs.length-1]
         
+        this.initialiseSelected();
+        //console.log("intiialised...");
+        
+        this.lengths = [this.bassClefs.length-1, this.rideClefs.length-1, this.hihatClefs.length-1]
+        this.max_combinations = (this.bassClefs.length-1) * (this.rideClefs.length-1) * 
+                                (this.hihatClefs.length-1); // maximum number of bar combinations
+        //console.log("Max comb:", this.max_combinations);
+          
         this.played_counter = document.getElementById('played-counter');
         this.repeatBars = 1; //document.getElementById('maxRepeat').value;
         this.change = 0;   // how many bars to change from one exercise to the next one
         this.weight = 0;   // use weighted random selection
-        this.max_combinations = (bassClefs.length-1) * (rideClefs.length-1) * (hihatClefs.length-1); // maximum number of bar combinations
+        
         this.matrix = this.generateMatrix();
         this.randoms = this.matrix[0];
         this.barindex = 0;
@@ -385,6 +178,53 @@ class Metronome
     /* -----------------
        MUSIC SCORE
        ----------------- */
+    
+    initialiseSelected(){
+        this.selectedA = [];
+        this.selectedB = [];
+        this.selectedC = [];
+        this.bassClefs = [];
+        this.rideClefs = [];
+        this.hihatClefs = [];
+        
+        var radioButtons = document.getElementsByName("clefA");
+        //console.log(radioButtons.length);
+        for (var i = 0; i < radioButtons.length; i++) {
+                  if (radioButtons[i].checked) {
+                    this.selectedA.push(i);  
+                    this.bassClefs.push(bassClefs[i]);
+
+                  }
+                }
+        
+        this.bassClefs.push(bassClefs[bassClefs.length-1]);
+
+
+        radioButtons = document.getElementsByName("clefB");
+        //console.log(radioButtons.length);
+        for (var i = 0; i < radioButtons.length; i++) {
+                  if (radioButtons[i].checked) {
+                    this.selectedB.push(i);    
+                    this.rideClefs.push(rideClefs[i]);
+                  }
+                }
+        this.rideClefs.push(rideClefs[rideClefs.length-1]);
+
+        
+        radioButtons = document.getElementsByName("clefC");
+        //console.log(radioButtons.length);
+        for (var i = 0; i < radioButtons.length; i++) {
+                  if (radioButtons[i].checked) {
+                    this.selectedC.push(i);  
+                      this.hihatClefs.push(hihatClefs[i]);
+                  }
+                }
+        this.hihatClefs.push(hihatClefs[hihatClefs.length-1]);
+        //console.log(JSON.stringify(this.selectedA),         
+          //          JSON.stringify(this.selectedB),JSON.stringify(this.selectedC));
+    }
+    
+    
     // kick
     bass(elementid, rand){
         document.getElementById(elementid).innerHTML = '';
@@ -396,13 +236,13 @@ class Metronome
         stave.addClef('percussion').addTimeSignature('2/4');
         stave.setContext(context).draw();
         //notes
-        var notes1 = bassClefs[rand];
-        if (rand == bassClefs.length-1)
+        var notes1 = this.bassClefs[rand];
+        if (rand == this.bassClefs.length-1)
             var notes2 = snareClefs[1];
         else
             var notes2 = snareClefs[0];
         const allnotes = notes1.concat(notes2);
-        const beams = Beam.generateBeams(allnotes);
+        const beams = Beam.generateBeams(notes1);
         Formatter.FormatAndDraw(context, stave, allnotes);
         beams.forEach((b) => {
           b.setContext(context).draw();
@@ -422,7 +262,7 @@ class Metronome
         stave.setContext(context).draw();
 
         // Create the notes
-        const notes1 = rideClefs[rand];
+        const notes1 = this.rideClefs[rand];
         const beams = Beam.generateBeams(notes1);
         Formatter.FormatAndDraw(context, stave, notes1);
         beams.forEach((b) => {
@@ -442,7 +282,7 @@ class Metronome
         stave.setContext(context).draw();
 
         // Create the notes
-        const notes1 = hihatClefs[rand];
+        const notes1 = this.hihatClefs[rand];
         const beams = Beam.generateBeams(notes1);
         Formatter.FormatAndDraw(context, stave, notes1);
         beams.forEach((b) => {
@@ -455,12 +295,12 @@ class Metronome
        Generate matrix
        -----------------*/
     generateMatrix(){
-        console.log("Generating matrix");
+        //console.log("Generating matrix", this.lengths, this.max_combinations);
         var matrix = [];
         var nm = [];
         matrix = generateRandomMatrix(this.max_combinations, this.lengths);
         if (this.change == 1){
-            console.log("Change one limb", this.change);
+            //console.log("Change one limb", this.change);
             //change only one limb
             var attempts = 0;
             do {
@@ -471,15 +311,16 @@ class Metronome
                 matrix = JSON.parse(JSON.stringify(shuffleMatrix(matrix)));
             else    
                 matrix = JSON.parse(JSON.stringify(nm));
-            console.log("Attempts:", attempts);
+            //console.log("Attempts:", attempts);
         }
         else{
-            console.log("Change ANY limb");
+            //console.log("Change ANY limb");
             //can change any, just scramble
             matrix = JSON.parse(JSON.stringify(shuffleMatrix(matrix)));
         }
+        
+        matrix.push([this.bassClefs.length-1, this.rideClefs.length-1, this.hihatClefs.length-1]);
         //console.log("Matrix:", JSON.stringify(matrix));
-        matrix.push([bassClefs.length-1, rideClefs.length-1, hihatClefs.length-1]);
         //matrix.push([bassClefs.length-1, rideClefs.length-1, hihatClefs.length-1]);
         return matrix;
     }
@@ -501,7 +342,7 @@ class Metronome
     clef(){
         /* draw the current and next exercises */
         if (this.barindex == this.max_combinations){
-            console.log("Stopping");
+            //console.log("Stopping");
             this.stop();
             var playPauseIcon = document.getElementById('play-pause-icon');
             playPauseIcon.className = 'play';
@@ -512,18 +353,18 @@ class Metronome
         this.randoms = this.matrix[this.barindex]; 
         
         this.bass('bassSnare', this.randoms[0]);
-        document.getElementById('bassno').innerHTML = "&nbsp;A"+(this.randoms[0]+1)+".&nbsp;";
+        document.getElementById('bassno').innerHTML = "&nbsp;A"+(this.selectedA[this.randoms[0]]+1)+".&nbsp;";
         this.ride('ride', this.randoms[1]);
-        document.getElementById('rideno').innerHTML = "&nbsp;B"+(this.randoms[1]+1)+".&nbsp;";    
+        document.getElementById('rideno').innerHTML = "&nbsp;B"+(this.selectedB[this.randoms[1]]+1)+".&nbsp;";    
         this.hihat('hihat', this.randoms[2]);
-        document.getElementById('hhno').innerHTML = "&nbsp;C"+(this.randoms[2]+1)+".&nbsp;";
+        document.getElementById('hhno').innerHTML = "&nbsp;C"+(this.selectedC[this.randoms[2]]+1)+".&nbsp;";
         
         // Groove scribe
         let groove = this.createGrooveScribeGroove(0);
         this.gs.AddGrooveDisplayToElementId('GrooveDisplay', groove, true, true, false);    
 
         this.played_counter.textContent = "Playing " + (this.barindex+1)+ " out of "+this.max_combinations+" combinations";
-        console.log("Barindex", this.barindex, "Current bar: ", JSON.stringify(this.randoms));
+        //console.log("Barindex", this.barindex, "Current bar: ", JSON.stringify(this.randoms));
         
         
         // Next exercise
@@ -531,14 +372,12 @@ class Metronome
         this.randoms = this.matrix[this.barindex];
         
         this.bass('bassSnareNext', this.randoms[0]);
-        document.getElementById('bassnonext').innerHTML = "&nbsp;A"+(this.randoms[0]+1)+".&nbsp;";
+        document.getElementById('bassnonext').innerHTML = "&nbsp;A"+(this.selectedA[this.randoms[0]]+1)+".&nbsp;";
         this.ride('rideNext', this.randoms[1]);
-        document.getElementById('ridenonext').innerHTML = "&nbsp;B"+(this.randoms[1]+1)+".&nbsp;";
+        document.getElementById('ridenonext').innerHTML = "&nbsp;B"+(this.selectedB[this.randoms[1]]+1)+".&nbsp;";
         this.hihat('hihatNext', this.randoms[2]);
-        document.getElementById('hhnonext').innerHTML = "&nbsp;C"+(this.randoms[2]+1)+".&nbsp;";
-        console.log("Barindex", this.barindex, "Next bar: ", JSON.stringify(this.randoms));
-        
-        
+        document.getElementById('hhnonext').innerHTML = "&nbsp;C"+(this.selectedC[this.randoms[2]]+1)+".&nbsp;";
+        //console.log("Barindex", this.barindex, "Next bar: ", JSON.stringify(this.randoms));    
         
     }
     
@@ -548,7 +387,9 @@ class Metronome
        ------------------------- */
     createGrooveScribeGroove(val){
         // build the GS URL
-        var randoms = this.matrix[this.barindex+val];
+        var bar_randoms = this.matrix[this.barindex+val];
+        var randoms = [this.selectedA[bar_randoms[0]], this.selectedB[bar_randoms[1]], this.selectedC[bar_randoms[2]]];
+        //console.log("randoms in GS:", randoms, this.barindex, val);
         //var randoms = [11,10,0];
         let stem = "?TimeSig=4/4&Div=16&Tempo=";
         stem += this.tempo;
@@ -581,11 +422,16 @@ class Metronome
     --------- */
     
     redraw(){
+        this.initialiseSelected();
+        this.lengths = this.lengths = [this.bassClefs.length-1, this.rideClefs.length-1,         
+                                       this.hihatClefs.length-1];
+        this.max_combinations = (this.bassClefs.length-1) * (this.rideClefs.length-1) *                 
+                                (this.hihatClefs.length-1); // maximum number of bar combinations 
         this.matrix = this.generateMatrix();
         this.barindex = 0;
         this.randoms = this.matrix[this.barindex];
         this.clef();
-        this.createGrooveScribeGroove(0);
+        //this.createGrooveScribeGroove(0);
     }
     
 }

@@ -22,11 +22,7 @@
         </div>
     </div>
     
-    
-    <!-- SETTINGS WHEEL 
-    <div class="row" style="margin-bottom:0px; width:60%;text-align:left">
-    	<i class="fa fa-cog options-btn" id="options-btn" style="font-size:60px; color:orange; padding:5px"></i>
-    </div>-->
+
     	
     <!-- BAR COUNTER -->
     <div class="row" id="bar-counter" style="margin-bottom:0px; padding-top:15px;  ">
@@ -75,7 +71,75 @@
                           <span style="font-size:10pt; text-align:left; color:gray; font-weight:200;">number of bars that change from one exercise to the next</span>
                        </div>
                 </form>
-           </div>  	   	
+           </div>  	
+            
+            <div class="row"  > <b>Selected bars</b> </div>
+            
+            <form name="selectedBars">
+                <div class="row" style="border:1px solid gray"> 
+                    <!--- KICK -->
+                    <div>
+                        <div class="column2" style="width:12%">
+                         <label ><input type="checkbox" name="clefA" value="0" checked>A1</label>  
+                         <label ><input type="checkbox" name="clefA" value="1" >A2</label>
+                         <label ><input type="checkbox" name="clefA" value="2" >A3</label>
+                         <label ><input type="checkbox" name="clefA" value="3" >A4</label>
+                         <label ><input type="checkbox" name="clefA" value="4" >A5</label> 
+                        </div>
+
+                        <div class="column2" style="width:12%">
+                         <label ><input type="checkbox" name="clefA" value="5" >A6</label>  
+                         <label ><input type="checkbox" name="clefA" value="6" >A7</label>
+                         <label ><input type="checkbox" name="clefA" value="7" >A8</label>
+                         <label ><input type="checkbox" name="clefA" value="8" checked>A9</label>
+                         <label ><input type="checkbox" name="clefA" value="9" >A10</label> 
+                        </div>
+
+                        <div class="column2" style="width:12%">
+                         <label ><input type="checkbox" name="clefA" value="10" >A11</label>  
+                         <label ><input type="checkbox" name="clefA" value="11" >A12</label>
+                         <label ><input type="checkbox" name="clefA" value="12" >A13</label>
+                         <label ><input type="checkbox" name="clefA" value="13" >A14</label>
+                         <label ><input type="checkbox" name="clefA" value="14" >A15</label> 
+                        </div>
+                    </div>
+
+
+                    <!--- RIDE -->
+                    <div class="column2" style="width:12%">
+                     <label ><input type="checkbox" name="clefB" value="0" checked>B1</label>  
+                     <label ><input type="checkbox" name="clefB" value="1" checked>B2</label>
+                     <label ><input type="checkbox" name="clefB" value="2" checked>B3</label>
+                     <label ><input type="checkbox" name="clefB" value="3" checked>B4</label>
+                     <label ><input type="checkbox" name="clefB" value="4" checked>B5</label> 
+                    </div>
+
+                    <div class="column2" style="width:12%">
+                     <label ><input type="checkbox" name="clefB" value="5" checked>B6</label>  
+                     <label ><input type="checkbox" name="clefB" value="6" checked>B7</label>
+                     <label ><input type="checkbox" name="clefB" value="7" checked>B8</label>
+                     <label ><input type="checkbox" name="clefB" value="8" checked>B9</label>
+                     <label ><input type="checkbox" name="clefB" value="9" checked>B10</label> 
+                    </div>
+
+                    <div class="column2" style="width:12%">
+                     <label ><input type="checkbox" name="clefB" value="10" checked>B11</label>  
+                     <label ><input type="checkbox" name="clefB" value="11" checked>B12</label>
+                     <label ><input type="checkbox" name="clefB" value="12" checked>B13</label>
+                     <label ><input type="checkbox" name="clefB" value="13" checked>B14</label>
+                     <label ><input type="checkbox" name="clefB" value="14" checked>B15</label> 
+                    </div>
+
+                    <!-- SNARE -->
+                    <div class="column2" style="width:12%">
+                     <label ><input type="checkbox" name="clefC" value="0" checked>C1</label>  
+                     <label ><input type="checkbox" name="clefC" value="1" checked>C2</label>
+                     <label ><input type="checkbox" name="clefC" value="2" checked>C3</label>
+
+                    </div>
+   
+                </div>
+            </form>
             
            <!-- Weighter
            <div class='row'  style="width:95%; border:0.5px solid gray; margin-top:15px">
@@ -152,6 +216,11 @@
         </button>
     
     
+    <button id="reset" class="" style="width:15%; background: tomato;">
+            <span style="text-align:center !important; color:white;font-size:12pt" id=played-counter>RESET</span>
+    </button>
+    
+    
 
        
         
@@ -200,6 +269,7 @@
     <script src="js/jsmidgen.js"  ></script>
     <script src="js/abc2svg-1.js"  ></script>
     <script src="js/generate_random_matrix.js"></script>
+    <script src="js/bars_display.js"></script> 
     <script src="js/metronome.js"></script> 
     <script src="js/groove_utils.js" ></script>
     <script src="js/groove_display.js"></script>

@@ -126,11 +126,3 @@ function generateWeightedRandoms(){
         }
     }
     */
-
-
-// weighted randoms for bass, ride, hihat
-const weights = [[1,2],
-                 [1,1,2,1,1,1,5,4,3,3,5,1,1,3,1],
-                 [1,2,2]];
-
-const limbWeights = [1,1,2];

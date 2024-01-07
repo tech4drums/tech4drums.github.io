@@ -116,3 +116,21 @@ window.addEventListener("load", function () {
 	gs.AddGrooveDisplayToElementId('GrooveDisplay', "?TimeSig=4/4&Div=16&Tempo=70&Measures=1&H=|xxxxxxxxxxxxxxxx|&S=|-O--O-O-----O---|&K=|o-X---o-o-X-----|", true, false);
 }, false);
 */
+
+
+/* SELECTED BARS LISTENER */
+document.forms["selectedBars"].addEventListener("change", function() {
+    metronome.redraw();
+});
+
+
+var reset = document.getElementById("reset");
+reset.addEventListener('click', function() {
+    metronome.stop();
+    if (metronome.isRunning) {
+        playPauseIcon.className = 'pause';
+    }
+    metronome.redraw();   
+});
+
+        
