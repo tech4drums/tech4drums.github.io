@@ -84,10 +84,19 @@ body {
    width: 60%;	
 }
 
+
+h4{
+       font-size:26pt;
+ }
+
 @media only screen and (max-width: 700px) {
     .row{
-	   width: 100%;
+	   width: 95%;
     }
+    
+    h4{
+       font-size:22pt;
+       }
 }
 
 
@@ -184,8 +193,8 @@ body {
 
 
 #bar-changer{
-   width:90%; 
-   /*background:DodgerBlue; */
+   /*width:90%; 
+   background:DodgerBlue; */
     background:dodgerBlue;
    text-align:center; 
    margin-bottom:10px; 
@@ -203,8 +212,8 @@ body {
    }
 
 #bar-counter{
-   width:90%; 
-   /*background:DodgerBlue; */
+   /*width:90%; 
+   background:DodgerBlue; */
    background: dodgerBlue;
    text-align:center; 
    margin-bottom:0px; 

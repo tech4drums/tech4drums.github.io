@@ -263,9 +263,9 @@ class Metronome
         document.getElementById(elementid).innerHTML = '';
         const div = document.getElementById(elementid);
         const renderer = new Renderer(div, Renderer.Backends.SVG);
-        renderer.resize(220, 90);
+        renderer.resize(190, 90);
         const context = renderer.getContext();
-        const stave = new Stave(0, 0, 200);
+        const stave = new Stave(0, 0, 180);
         stave.addClef('percussion').addTimeSignature('2/4');
         stave.setContext(context).draw();
         //notes
@@ -288,9 +288,9 @@ class Metronome
         document.getElementById(elementid).innerHTML = '';
         const div = document.getElementById(elementid);
         const renderer = new Renderer(div, Renderer.Backends.SVG);
-        renderer.resize(220, 120);
+        renderer.resize(190, 120);
         const context = renderer.getContext();
-        const stave = new Stave(0, 0, 200);
+        const stave = new Stave(0, 0, 180);
         stave.addClef('percussion').addTimeSignature('1/4');
         stave.setContext(context).draw();
 
@@ -308,9 +308,9 @@ class Metronome
         document.getElementById(elementid).innerHTML = '';
         const div = document.getElementById(elementid);
         const renderer = new Renderer(div, Renderer.Backends.SVG);
-        renderer.resize(210, 90);
+        renderer.resize(190, 90);
         const context = renderer.getContext();
-        const stave = new Stave(0, 0, 200);
+        const stave = new Stave(0, 0, 180);
         stave.addClef('percussion').addTimeSignature('1/4');
         stave.setContext(context).draw();
 
