@@ -42,59 +42,186 @@ const limbWeights = [1,1,2];
 const snareClefs = [[new StaveNote({keys: ['c/5'],duration: 'q'})],
                     [new StaveNote({ keys: ['a/4'], duration: '4r', })]];
 
+const bassClefs_full = [[new StaveNote({keys: ['f/4'],duration: 'q'})], //1
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                    dotted(new StaveNote({ keys: ['f/4'], duration: '8'}))], //2
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
+                    new StaveNote({ keys: ['f/4'], duration: '8'})], //3
+                   
+                   [dotted(new StaveNote({ keys: ['a/4'], duration: '8r', })), 
+                    new StaveNote({ keys: ['f/4'], duration: '16'}),],//4
+                   
+                   [new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                    new StaveNote({ keys: ['f/4'], duration: '16'}),
+                    new StaveNote({ keys: ['a/4'], duration: '8r'})], //5
+                   
+                    [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '8'})], //6   
+                   
+                    [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'})], //7  
+                   
+                    [dotted(new StaveNote({ keys: ['f/4'], duration: '8', })), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}),],//8
+                   
+                    [new StaveNote({keys: ['f/4'],duration: '8'}), 
+                     new StaveNote({keys: ['f/4'],duration: '8'})], //9
+                   
+                    [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                     new StaveNote({ keys: ['f/4'], duration: '8'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'})], //10
+                   
+                   
+                    [new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '8'}), ], //11
+                   
+                    [new StaveNote({ keys: ['f/4'], duration: '8'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'})], //12
+                   
+                    [new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '8'}),
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), ], //13
+                   
+                    [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}),], //14
+                   
+                    [new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'}), 
+                     new StaveNote({ keys: ['f/4'], duration: '16'})], //15
+                   
+                    [new StaveNote({ keys: ['a/4'], duration: '4r', })]
+                  ];
+
+
 const bassClefs = [[new StaveNote({keys: ['f/4'],duration: 'q'})],
-                   [new StaveNote({keys: ['f/4'],duration: '8'}), new StaveNote({keys: ['f/4'],duration: '8'})],
-                   [new StaveNote({ keys: ['a/4'], duration: '4r', })]
+                        
+                        [new StaveNote({keys: ['f/4'],duration: '8'}), 
+                         new StaveNote({keys: ['f/4'],duration: '8'})],
+                        
+                        [new StaveNote({ keys: ['a/4'], duration: '4r', })]
                   ];
           
-const hihatClefs = [[new StaveNote({keys: ['d/4/x2'],duration: 'q'})],
-                    [new StaveNote({keys: ['d/4/x2'],duration: '8'}), new StaveNote({keys: ['d/4/x2'], duration: '8'})],
-                    [new StaveNote({keys: ['a/4'],duration: '8r'}), new StaveNote({keys: ['d/4/x2'], duration: '8'})],
-                    [new StaveNote({ keys: ['a/4'], duration: '4r', })]
+const hihatClefs = [[new StaveNote({keys: ['d/4/x2'],duration: 'q'})],//1
+                    
+                    [new StaveNote({keys: ['d/4/x2'],duration: '8'}), 
+                     new StaveNote({keys: ['d/4/x2'], duration: '8'})],//2
+                    
+                    [new StaveNote({keys: ['a/4'],duration: '8r'}), 
+                     new StaveNote({keys: ['d/4/x2'], duration: '8'})],//3
+                    
+                    [new StaveNote({ keys: ['a/4'], duration: '4r', })]//rest
                    ];    
                 
 const rideClefs = [[new StaveNote({ keys: ['a/5/x2'], duration: 'q'})], //1
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '8'}), new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //2
-                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //3
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //4
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), new StaveNote({ keys: ['a/5/x2'], duration: '16'}),
-                    new StaveNote({ keys: ['a/4'], duration: '8r'})], //5
-                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //6
-                   [dotted(new StaveNote({ keys: ['a/5/x2'], duration: '8', })), new StaveNote({ keys: ['a/5/x2'], duration: '16'}),],//7
-                   [dotted(new StaveNote({ keys: ['a/4'], duration: '8r', })), new StaveNote({ keys: ['a/5/x2'], duration: '16'}),],//8
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //9
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), dotted(new StaveNote({ keys: ['a/5/x2'], duration: '8'}))], //10
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), new StaveNote({ keys: ['a/5/x2'], duration: '8'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //11
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '8'}), new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //12
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '8'}), ], //13
-                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                   
+                   [new StaveNote({ keys: ['a/5/x2'], duration: '8'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //2
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //3
+                   
+                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
                     new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),], //14       
-                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), new StaveNote({ keys: ['a/5/x2'], duration: '8'}),
-                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), ], //15
-                   [new StaveNote({ keys: ['a/4'], duration: '4r', })]
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //4
+                   
+                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),
+                    new StaveNote({ keys: ['a/4'], duration: '8r'})], //5
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //6
+                   
+                   [dotted(new StaveNote({ keys: ['a/5/x2'], duration: '8', })), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),],//7
+                   
+                   [dotted(new StaveNote({ keys: ['a/4'], duration: '8r', })), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),],//8
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //9
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                    dotted(new StaveNote({ keys: ['a/5/x2'], duration: '8'}))], //10
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '8'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //11
+                   
+                   [new StaveNote({ keys: ['a/5/x2'], duration: '8'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'})], //12
+                   
+                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '8'}), ], //13
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '16r', }), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),], //14 
+                   
+                   [new StaveNote({ keys: ['a/5/x2'], duration: '16'}), 
+                    new StaveNote({ keys: ['a/5/x2'], duration: '8'}),
+                    new StaveNote({ keys: ['a/5/x2'], duration: '16'}),], //15
+                   
+                   [new StaveNote({ keys: ['a/4'], duration: '4r', })] //rest
                    ];         
-//const rideClefs = [[new StaveNote({ keys: ['a/5/x2'], duration: 'q'})], //1
-//                   [new StaveNote({ keys: ['a/4'], duration: '4r', })]
-////                   [new StaveNote({ keys: ['a/5/x2'], duration: '8'}), new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //2
-////                   [new StaveNote({ keys: ['a/4'], duration: '8r'}), new StaveNote({ keys: ['a/5/x2'], duration: '8'})], //3 
-//                   ];  
+
 
 // Groove Scribe grooves
-const snareGS = ["&S=|----o-------o---|"];
-const bassGS  = ["&K=|o-------o-------|", "&K=|o-o-----o-o-----|"];
-const hihatGS = ["&K=|x---x---x---x---|", "&K=|x-x-x-x-x-x-x-x-|", "&K=|--x---x---x---x-|"];
-const rideGS  = ["&H=|r---r---r---r---|", "&H=|r-r-r-r-r-r-r-r-|", "&H=|--r---r---r---r-|", 
-                 "&H=|rrrrrrrrrrrrrrrr|", "&H=|rr--rr--rr--rr--|", "&H=|--rr--rr--rr--rr|", 
-                 "&H=|r--rr--rr--rr--r|", "&H=|---r---r---r---r|", "&H=|-rr--rr--rr--rr-|", 
-                 "&H=|-r---r---r---r--|", "&H=|-r-r-r-r-r-r-r-r|", "&H=|r-rrr-rrr-rrr-rr|", 
-                 "&H=|rrr-rrr-rrr-rrr-|", "&H=|-rrr-rrr-rrr-rrr|", "&H=|rr-rrr-rrr-rrr-r|"];
+const snareGS     = ["&S=|----o-------o---|"];
+
+const bassGS = ["&K=|o-------o-------|", 
+                     "&K=|o-o-----o-o-----|"];
+
+const bassGS_full  = ["&K=|o-------o-------|",//1
+                 "&K=|-o-------o------|",//2
+                 "&K=|--o-------o-----|",//3
+                 "&K=|---o-------o----|",//4
+                 "&K=|oo------oo------|",//5
+                 "&K=|-oo------oo-----|",//6
+                 "&K=|--oo------oo----|",//7
+                 "&K=|o--o----o--o----|",//8  
+                 "&K=|o-o-----o-o-----|",//9
+                 "&K=|-o-o-----o-o----|",//10
+                 "&K=|ooo-----ooo-----|",//11
+                 "&K=|o-oo----o-oo----|",//12
+                 "&K=|oo-o----oo-o----|",//13
+                 "&K=|-ooo-----ooo----|",//14
+                 "&K=|oooo----oooo----|",//15
+                ];
+
+const hihatGS = ["&K=|x---x---x---x---|", 
+                 "&K=|x-x-x-x-x-x-x-x-|", 
+                 "&K=|--x---x---x---x-|"];
+
+const rideGS  = ["&H=|r---r---r---r---|", 
+                 "&H=|r-r-r-r-r-r-r-r-|", 
+                 "&H=|--r---r---r---r-|", 
+                 "&H=|rrrrrrrrrrrrrrrr|", 
+                 "&H=|rr--rr--rr--rr--|", 
+                 "&H=|--rr--rr--rr--rr|", 
+                 "&H=|r--rr--rr--rr--r|", 
+                 "&H=|---r---r---r---r|", 
+                 "&H=|-rr--rr--rr--rr-|", 
+                 "&H=|-r---r---r---r--|", 
+                 "&H=|-r-r-r-r-r-r-r-r|", 
+                 "&H=|r-rrr-rrr-rrr-rr|", 
+                 "&H=|rrr-rrr-rrr-rrr-|", 
+                 "&H=|-rrr-rrr-rrr-rrr|", 
+                 "&H=|rr-rrr-rrr-rrr-r|"];
 
 /* ----------------
    Class METRONOME
@@ -324,64 +451,6 @@ class Metronome
     }
     
     
-    
-    /* -------------------------
-       Weighted Randoms function 
-       ------------------------- */
-    weightedRandom(weights) { 
-      // Preparing the cumulative weights array.
-      // For example:
-      // - weights = [1, 4, 3]
-      // - cumulativeWeights = [1, 5, 8]
-      const cumulativeWeights = [];
-      for (let i = 0; i < weights.length; i += 1) {
-        cumulativeWeights[i] = weights[i] + (cumulativeWeights[i - 1] || 0);
-      }
-      // Getting the random number in a range of [0...sum(weights)]
-      // For example:
-      // - weights = [1, 4, 3]
-      // - maxCumulativeWeight = 8
-      // - range for the random number is [0...8]
-      const maxCumulativeWeight = cumulativeWeights[cumulativeWeights.length - 1];
-      const randomNumber = maxCumulativeWeight * Math.random();
-      // Picking the random item based on its weight.
-      // The items with higher weight will be picked more often.
-      for (let itemIndex = 0; itemIndex < weights.length; itemIndex += 1) {
-        if (cumulativeWeights[itemIndex] >= randomNumber) {
-          return itemIndex;
-        }
-      }
-    }
-    
-    /* -------------------------
-       GENERATE WEIGHTED RANDOMS 
-       ------------------------- */
-    generateWeightedRandoms(){
-        if (this.change != 0){
-            /* Can change any, but at least one */
-            var randoms = [];
-            this.previous_randoms = JSON.parse(JSON.stringify(this.randoms));
-            do{
-                randoms = [this.weightedRandom(weights[0]),
-                           this.weightedRandom(weights[1]),
-                           this.weightedRandom(weights[2])];
-            } while (JSON.stringify(randoms) == JSON.stringify(this.randoms));
-            this.randoms = randoms;
-        }  
-        else{
-           /* Change only one limb */
-            let limb = 0;
-            let new_val = 0;
-            this.previous_randoms = JSON.parse(JSON.stringify(this.randoms));
-            do {
-               limb = this.weightedRandom(limbWeights);
-               new_val = this.weightedRandom(weights[limb]);
-            } while (new_val == this.randoms[limb]);
-           this.randoms[limb] = new_val;
-        }
-    }
-    
-   
     /* -----------------
        Generate matrix
        -----------------*/
@@ -398,7 +467,10 @@ class Metronome
                     nm = orderMatrix2Common(matrix);
                     attempts+=1;
             } while ((nm.length< matrix.length) && (attempts < 1000));
-            matrix = JSON.parse(JSON.stringify(nm));
+            if (attempts == 1000)
+                matrix = JSON.parse(JSON.stringify(shuffleMatrix(matrix)));
+            else    
+                matrix = JSON.parse(JSON.stringify(nm));
             console.log("Attempts:", attempts);
         }
         else{
@@ -406,14 +478,13 @@ class Metronome
             //can change any, just scramble
             matrix = JSON.parse(JSON.stringify(shuffleMatrix(matrix)));
         }
-        console.log("Matrix:", JSON.stringify(matrix));
+        //console.log("Matrix:", JSON.stringify(matrix));
         matrix.push([bassClefs.length-1, rideClefs.length-1, hihatClefs.length-1]);
         //matrix.push([bassClefs.length-1, rideClefs.length-1, hihatClefs.length-1]);
         return matrix;
     }
     
     
- 
 
     /* -----------------
         Tempo update 
@@ -429,7 +500,6 @@ class Metronome
        ------------------------ */
     clef(){
         /* draw the current and next exercises */
-        
         if (this.barindex == this.max_combinations){
             console.log("Stopping");
             this.stop();
@@ -440,6 +510,7 @@ class Metronome
         }
         // Current exercise 
         this.randoms = this.matrix[this.barindex]; 
+        
         this.bass('bassSnare', this.randoms[0]);
         document.getElementById('bassno').innerHTML = "&nbsp;A"+(this.randoms[0]+1)+".&nbsp;";
         this.ride('ride', this.randoms[1]);
@@ -453,6 +524,8 @@ class Metronome
 
         this.played_counter.textContent = "Playing " + (this.barindex+1)+ " out of "+this.max_combinations+" combinations";
         console.log("Barindex", this.barindex, "Current bar: ", JSON.stringify(this.randoms));
+        
+        
         // Next exercise
         this.barindex+=1;
         this.randoms = this.matrix[this.barindex];
@@ -476,6 +549,7 @@ class Metronome
     createGrooveScribeGroove(val){
         // build the GS URL
         var randoms = this.matrix[this.barindex+val];
+        //var randoms = [11,10,0];
         let stem = "?TimeSig=4/4&Div=16&Tempo=";
         stem += this.tempo;
         stem += "&Measures=1";
