@@ -339,6 +339,12 @@ class Metronome
     /* ------------------------
        Generate exercise scores
        ------------------------ */
+    
+     ordinal(n) {
+      var s = ["th", "st", "nd", "rd"],
+          v = n % 100;
+      return n + (s[(v - 20) % 10] || s[v] || s[0]);
+    }
     clef(){
         /* draw the current and next exercises */
         if (this.barindex == this.max_combinations){
@@ -363,7 +369,7 @@ class Metronome
         let groove = this.createGrooveScribeGroove(0);
         this.gs.AddGrooveDisplayToElementId('GrooveDisplay', groove, true, true, false);    
 
-        this.played_counter.textContent = "Playing " + (this.barindex+1)+ " out of "+this.max_combinations+" combinations";
+        this.played_counter.innerHTML = "Playing <b style='font-size:16pt'>" + this.ordinal(this.barindex+1)+ "</b> out of "+this.max_combinations+" combinations";
         //console.log("Barindex", this.barindex, "Current bar: ", JSON.stringify(this.randoms));
         
         
