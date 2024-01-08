@@ -97,6 +97,11 @@ h4{
     h4{
        font-size:22pt;
        }
+    
+    #play-button {
+        width: 60%;
+        height: 45%;
+    }
 }
 
 
@@ -139,7 +144,7 @@ h4{
 
 
 #play-button {
-    width: 35%;
+    width: 45%;
     height: 35%;
     display: flex;
     align-items: center;

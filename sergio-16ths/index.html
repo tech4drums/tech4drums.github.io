@@ -53,33 +53,34 @@
 	      <i class="fa fa-caret-down up"></i>
 	           	   
            <!-- Changer -->
-           <div class="row"  style="width:95%; border:0.5px solid gray">
+           <div class="row"  style="width:97%"> <b>Change</b> </div>
+           <div class="row"  style="width:97%; border:0.5px solid gray">
                  <form name="changerForm">
-                       <div class="column" style="text-align:right; padding-top:10px;width:20%"><b>Change</b>
+                       <!--<div class="column" style="text-align:right; padding-top:10px;width:20%"><b>Change</b>
                         <br/>
-                       </div>
-                       <div class="column2" style="width:10%">
+                       </div>-->
+                       <div class="column2" style="width:20%">
                           <input type="radio" id="change2" name="changer" value="0" checked><br>
                           <label  style="font-size:10pt" for="change1">Any</label>
                        </div>
-                       <div class="column2" style="width:10%"> 
+                       <div class="column2" style="width:20%"> 
                           <input type="radio" id="change1" name="changer" value="1" ><br>
                           <label for="change1" style="font-size:10pt; w">One </label>
                        </div>
                        
                        <div class="column2" style="width:50%">
-                          <span style="font-size:10pt; text-align:left; color:gray; font-weight:200;">number of bars that change from one exercise to the next</span>
+                          <span style="font-size:10pt; text-align:left; color:gray; font-weight:200;">number of patterns that change from one exercise to the next</span>
                        </div>
                 </form>
            </div>  	
             
-            <div class="row"  > <b>Selected bars</b> </div>
             
+            <div class="row"  style="width:97%"> <b>Selected patterns</b> </div>
             <form name="selectedBars">
-                <div class="row" style="border:1px solid gray"> 
+                <div class="row" style="border:0.5px solid gray; width:97%"> 
                     <!--- KICK -->
                     <div>
-                        <div class="column2" style="width:12%">
+                        <div class="column2" style="width:14%">
                          <label ><input type="checkbox" name="clefA" value="0" checked>A1</label>  
                          <label ><input type="checkbox" name="clefA" value="1" >A2</label>
                          <label ><input type="checkbox" name="clefA" value="2" >A3</label>
@@ -87,7 +88,7 @@
                          <label ><input type="checkbox" name="clefA" value="4" >A5</label> 
                         </div>
 
-                        <div class="column2" style="width:12%">
+                        <div class="column2" style="width:14%">
                          <label ><input type="checkbox" name="clefA" value="5" >A6</label>  
                          <label ><input type="checkbox" name="clefA" value="6" >A7</label>
                          <label ><input type="checkbox" name="clefA" value="7" >A8</label>
@@ -95,7 +96,7 @@
                          <label ><input type="checkbox" name="clefA" value="9" >A10</label> 
                         </div>
 
-                        <div class="column2" style="width:12%">
+                        <div class="column2" style="width:14%; border-right: 0.5px solid gray;">
                          <label ><input type="checkbox" name="clefA" value="10" >A11</label>  
                          <label ><input type="checkbox" name="clefA" value="11" >A12</label>
                          <label ><input type="checkbox" name="clefA" value="12" >A13</label>
@@ -106,7 +107,7 @@
 
 
                     <!--- RIDE -->
-                    <div class="column2" style="width:12%">
+                    <div class="column2" style="width:14%">
                      <label ><input type="checkbox" name="clefB" value="0" checked>B1</label>  
                      <label ><input type="checkbox" name="clefB" value="1" checked>B2</label>
                      <label ><input type="checkbox" name="clefB" value="2" checked>B3</label>
@@ -114,7 +115,7 @@
                      <label ><input type="checkbox" name="clefB" value="4" checked>B5</label> 
                     </div>
 
-                    <div class="column2" style="width:12%">
+                    <div class="column2" style="width:14%">
                      <label ><input type="checkbox" name="clefB" value="5" checked>B6</label>  
                      <label ><input type="checkbox" name="clefB" value="6" checked>B7</label>
                      <label ><input type="checkbox" name="clefB" value="7" checked>B8</label>
@@ -122,7 +123,7 @@
                      <label ><input type="checkbox" name="clefB" value="9" checked>B10</label> 
                     </div>
 
-                    <div class="column2" style="width:12%">
+                    <div class="column2" style="width:14%; border-right: 0.5px solid gray;">
                      <label ><input type="checkbox" name="clefB" value="10" checked>B11</label>  
                      <label ><input type="checkbox" name="clefB" value="11" checked>B12</label>
                      <label ><input type="checkbox" name="clefB" value="12" checked>B13</label>
@@ -130,12 +131,11 @@
                      <label ><input type="checkbox" name="clefB" value="14" checked>B15</label> 
                     </div>
 
-                    <!-- SNARE -->
-                    <div class="column2" style="width:12%">
+                    <!-- Hihat foot -->
+                    <div class="column2" style="width:14%">
                      <label ><input type="checkbox" name="clefC" value="0" checked>C1</label>  
                      <label ><input type="checkbox" name="clefC" value="1" checked>C2</label>
                      <label ><input type="checkbox" name="clefC" value="2" checked>C3</label>
-
                     </div>
    
                 </div>
@@ -165,7 +165,7 @@
             <!-- Notes -->
             <div class=row style="width:90%; text-align:left; font-size:10pt">
                 <b style="text-align:left">Notes</b><br/>
-             The exercises assume an N bar repetition of the current bar followed by a full bar fill of your choice.<br/>
+             The exercises assume an N bar repetition of the current pattern followed by a full bar fill of your choice.<br/>
              You can use the space bar to start/stop the metronome.
 
            </div>
