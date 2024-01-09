@@ -77,68 +77,72 @@
             
             <div class="row"  style="width:97%"> <b>Selected patterns</b> </div>
             <form name="selectedBars">
-                <div class="row" style="border:0.5px solid gray; width:97%"> 
-                    <!--- KICK -->
-                    <div>
-                        <div class="column2" style="width:14%">
-                         <label ><input type="checkbox" name="clefA" value="0" checked>A1</label>  
-                         <label ><input type="checkbox" name="clefA" value="1" >A2</label>
-                         <label ><input type="checkbox" name="clefA" value="2" >A3</label>
-                         <label ><input type="checkbox" name="clefA" value="3" >A4</label>
-                         <label ><input type="checkbox" name="clefA" value="4" >A5</label> 
-                        </div>
-
-                        <div class="column2" style="width:14%">
-                         <label ><input type="checkbox" name="clefA" value="5" >A6</label>  
-                         <label ><input type="checkbox" name="clefA" value="6" >A7</label>
-                         <label ><input type="checkbox" name="clefA" value="7" >A8</label>
-                         <label ><input type="checkbox" name="clefA" value="8" checked>A9</label>
-                         <label ><input type="checkbox" name="clefA" value="9" >A10</label> 
-                        </div>
-
-                        <div class="column2" style="width:14%; border-right: 0.5px solid gray;">
-                         <label ><input type="checkbox" name="clefA" value="10" >A11</label>  
-                         <label ><input type="checkbox" name="clefA" value="11" >A12</label>
-                         <label ><input type="checkbox" name="clefA" value="12" >A13</label>
-                         <label ><input type="checkbox" name="clefA" value="13" >A14</label>
-                         <label ><input type="checkbox" name="clefA" value="14" >A15</label> 
-                        </div>
-                    </div>
-
-
-                    <!--- RIDE -->
-                    <div class="column2" style="width:14%">
-                     <label ><input type="checkbox" name="clefB" value="0" checked>B1</label>  
-                     <label ><input type="checkbox" name="clefB" value="1" checked>B2</label>
-                     <label ><input type="checkbox" name="clefB" value="2" checked>B3</label>
-                     <label ><input type="checkbox" name="clefB" value="3" checked>B4</label>
-                     <label ><input type="checkbox" name="clefB" value="4" checked>B5</label> 
-                    </div>
-
-                    <div class="column2" style="width:14%">
-                     <label ><input type="checkbox" name="clefB" value="5" checked>B6</label>  
-                     <label ><input type="checkbox" name="clefB" value="6" checked>B7</label>
-                     <label ><input type="checkbox" name="clefB" value="7" checked>B8</label>
-                     <label ><input type="checkbox" name="clefB" value="8" checked>B9</label>
-                     <label ><input type="checkbox" name="clefB" value="9" checked>B10</label> 
-                    </div>
-
-                    <div class="column2" style="width:14%; border-right: 0.5px solid gray;">
-                     <label ><input type="checkbox" name="clefB" value="10" checked>B11</label>  
-                     <label ><input type="checkbox" name="clefB" value="11" checked>B12</label>
-                     <label ><input type="checkbox" name="clefB" value="12" checked>B13</label>
-                     <label ><input type="checkbox" name="clefB" value="13" checked>B14</label>
-                     <label ><input type="checkbox" name="clefB" value="14" checked>B15</label> 
-                    </div>
-
-                    <!-- Hihat foot -->
-                    <div class="column2" style="width:14%">
-                     <label ><input type="checkbox" name="clefC" value="0" checked>C1</label>  
-                     <label ><input type="checkbox" name="clefC" value="1" checked>C2</label>
-                     <label ><input type="checkbox" name="clefC" value="2" checked>C3</label>
-                    </div>
-   
+                <div class="row" style="border:0.5px solid gray; width:97%">  
+                    <table>
+                        <tr>
+                            <td><label><input type="checkbox" name="clefA" id="clefA1" value="0" checked>A1</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA2" value="1">A2</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA3" value="2">A3</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA4" value="3">A4</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA5" value="4">A5</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA6" value="5">A6</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA7" value="6">A7</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA8" value="7">A8</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA9" value="8" checked>A9</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA10" value="9">A10</label></td>
+                        </tr>   
+                        <tr>
+                            <td><label><input type="checkbox" name="clefA" id="clefA11" value="10">A11</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA12" value="11">A12</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA13" value="12">A13</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA14" value="13">A14</label></td>
+                            <td><label><input type="checkbox" name="clefA" id="clefA15" value="14">A15</label></td>
+                        </tr>
+                    </table>
+                    
+                </div> 
+                
+                
+                <div class="row" style="border:0.5px solid gray; width:97%">  
+                    <table>
+                        <tr>
+                            <td><label><input type="checkbox" name="clefB" id="clefB1" value="0" checked>B1</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB2" value="1" checked>B2</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB3" value="2" checked>B3</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB4" value="3" checked>B4</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB5" value="4" checked>B5</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB6" value="5" checked>B6</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB7" value="6" checked>B7</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB8" value="7" checked>B8</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB9" value="8" checked>B9</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB10" value="9" checked>B10</label></td>
+                        </tr>   
+                        <tr>
+                            <td><label><input type="checkbox" name="clefB" id="clefB11" value="10" checked>B11</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB12" value="11" checked>B12</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB13" value="12" checked>B13</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB14" value="13" checked>B14</label></td>
+                            <td><label><input type="checkbox" name="clefB" id="clefB15" value="14" checked>B15</label></td>
+                        </tr>
+                    </table>
+                    
+                </div> 
+                    
+                  
+                <div class="row" style="border:0.5px solid gray; width:97%">  
+                    <table>
+                        <tr>
+                            <td><label><input type="checkbox" name="clefC" id="clefC1" value="0" checked>C1</label></td>
+                            <td><label><input type="checkbox" name="clefC" id="clefC2" value="1" checked>C2</label></td>
+                            <td><label><input type="checkbox" name="clefC" id="clefC3" value="2" checked>C3</label></td>
+                    
+                        </tr>
+                    </table>
                 </div>
+                    
+                
+   
+              
             </form>
             
            <!-- Weighter
